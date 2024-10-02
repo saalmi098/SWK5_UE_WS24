@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PrimeCalc.Client": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}

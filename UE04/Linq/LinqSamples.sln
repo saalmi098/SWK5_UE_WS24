@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqSamples", "LinqSamples\LinqSamples.csproj", "{73426E2F-A32F-404A-BE4A-6EB739562363}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LinqSamples.Data", "LinqSamples.Data\LinqSamples.Data.csproj", "{F5976113-9773-4790-9FAC-FA500E7B6210}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73426E2F-A32F-404A-BE4A-6EB739562363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73426E2F-A32F-404A-BE4A-6EB739562363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73426E2F-A32F-404A-BE4A-6EB739562363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73426E2F-A32F-404A-BE4A-6EB739562363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5976113-9773-4790-9FAC-FA500E7B6210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5976113-9773-4790-9FAC-FA500E7B6210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5976113-9773-4790-9FAC-FA500E7B6210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5976113-9773-4790-9FAC-FA500E7B6210}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD0A4081-24AF-49E6-8223-1F6EA0F9E3D4}
+	EndGlobalSection
+EndGlobal

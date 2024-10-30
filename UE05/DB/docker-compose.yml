@@ -1,0 +1,31 @@
+name: mssqlserver-swk5
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=${Sa_Password:-Swk5-rocks!}
+    ports:
+      - 1433:1433
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -U sa -P ${Sa_Password:-Swk5-rocks!} -C -Q 'SELECT 1' || exit 1"]
+      interval: 3s
+      retries: 10
+      start_period: 5s
+      timeout: 3s
+
+  init-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - SA_PASSWORD=Swk5-rocks!
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./init-db.sql:/usr/src/app/init-db.sql
+    command: >
+      bash -c "
+      /opt/mssql-tools18/bin/sqlcmd -S db -U sa -P ${Sa_Password:-Swk5-rocks!} -C -i /usr/src/app/init-db.sql
+      "

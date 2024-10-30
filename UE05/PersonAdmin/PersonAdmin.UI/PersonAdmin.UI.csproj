@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net8</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>true</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Dal.Common\Dal.Common.csproj" />
+		<ProjectReference Include="..\PersonAdmin.BusinessLogic\PersonAdmin.BusinessLogic.csproj" />
+		<ProjectReference Include="..\PersonAdmin.Dal.Ado\PersonAdmin.Dal.Ado.csproj" />
+		<ProjectReference Include="..\PersonAdmin.Dal.Interface\PersonAdmin.Dal.Interface.csproj" />
+		<ProjectReference Include="..\PersonAdmin.Dal.Simple\PersonAdmin.Dal.Simple.csproj" />
+		<ProjectReference Include="..\PersonAdmin.Domain\PersonAdmin.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.1" />
+		<PackageReference Include="System.Text.Json" Version="8.0.5" />
+		<PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

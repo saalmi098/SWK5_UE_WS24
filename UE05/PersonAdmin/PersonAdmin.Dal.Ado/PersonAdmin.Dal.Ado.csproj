@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>true</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="System.Text.Json" Version="8.0.5" />
+	  <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Dal.Common\Dal.Common.csproj" />
+		<ProjectReference Include="..\PersonAdmin.Dal.Interface\PersonAdmin.Dal.Interface.csproj" />
+		<ProjectReference Include="..\PersonAdmin.Domain\PersonAdmin.Domain.csproj" />
+	</ItemGroup>
+
+</Project>

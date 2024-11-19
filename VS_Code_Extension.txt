@@ -1,0 +1,2 @@
+Polyglot Notebooks
+-> im PYNB rechts oben bei Kernel ".NET Interactive" auswählen

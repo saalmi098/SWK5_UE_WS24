@@ -15,7 +15,10 @@ var customersWithA =
     //select c;
     select c.Name).ToList(); // 2b)
 
-//var customersWithA = customers.Where(c => c.Name.StartsWith("A", StringComparison.CurrentCultureIgnoreCase));
+//var customersWithA = customers
+//    .Where(c => c.Name.StartsWith("A", StringComparison.CurrentCultureIgnoreCase))
+//    .Select(c => c.Name)
+//    .ToList();
 
 Print("Customers with A", customersWithA);
 
@@ -27,10 +30,9 @@ var customersByRevenue =
 
 Print("Customers by Revenue", customersByRevenue);
 
-customers
-    .Where(c => c.Revenue > 1_000_000)
-    .OrderByDescending(c => c.Revenue)
-    .Select(c => c);
+//var customersByRevenue = customers
+//    .Where(c => c.Revenue > 1_000_000)
+//    .OrderByDescending(c => c.Revenue);
 
 // das macht der Compiler aus dem darüber geschriebenen (= IL-Code):
 //Enumerable.Select(
@@ -66,7 +68,7 @@ else
     Console.WriteLine("No A customers found");
 }
 
-var famia = customers.FirstOrDefault(c => c.Name.Equals("famia", StringComparison.CurrentCultureIgnoreCase)); // Default für Customers ist null, Default von IEnumerable<int> ist 0
+var famia = customers.FirstOrDefault(c => c.Name.Equals("famia", StringComparison.CurrentCultureIgnoreCase)); // Default für Customers ist null, Default von int ist 0
 //var famia = customers.SingleOrDefault(c => c.Name == "famia", StringComparison.CurrentCultureIgnoreCase); // überprüft zusätzlich, ob es nur 1 Element gibt, und falls nicht wirft es Exception
 if (famia is not null)
 {
@@ -82,6 +84,12 @@ var customersPerCountry =
         Country = countryGroup.Key,
         Customers = (IEnumerable<Customer>)countryGroup
     };
+
+//var customersPerCountry = customers.GroupBy(c => c.Location.Country).Select(countryGroup => new
+//{
+//    Country = countryGroup.Key,
+//    Customers = (IEnumerable<Customer>)countryGroup
+//});
 
 foreach (var group in customersPerCountry.OrderBy(g => g.Country))
 {

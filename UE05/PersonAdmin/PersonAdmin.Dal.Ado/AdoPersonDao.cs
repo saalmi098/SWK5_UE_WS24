@@ -15,7 +15,7 @@ public class AdoPersonDao : IPersonDao
     }
 
     public async Task<IEnumerable<Person>> FindAllAsync(CancellationToken cancellationToken = default) =>
-        await template.QueryAsync("SELECT * FROM Person", MapRowToPerson);
+        await template.QueryAsync("SELECT * FROM Person", MapRowToPerson, cancellationToken);
 
     public async Task<Person?> FindByAsync(int id, CancellationToken cancellationToken = default) =>
        await template.QuerySingleAsync(

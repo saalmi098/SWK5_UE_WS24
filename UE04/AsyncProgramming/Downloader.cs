@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using static System.Console;
 
-#pragma warning disable SYSLIB0014 // Type or member is obsolete; WebClient used for demonstration purposes. Use HttpClien instead
+#pragma warning disable SYSLIB0014 // Type or member is obsolete; WebClient used for demonstration purposes. Use HttpClient instead
 
 public class Downloader
 {
@@ -77,7 +77,7 @@ public class Downloader
         Task t2 = DownloadAsync_Await(url2, filePath2);
         WriteLine($"{nameof(DownloadMultipleAsync)}: {nameof(DownloadAsync_Await)} of '{url2}' started");
 
-        await Task.WhenAll(t1, t2); // WhenALl gibt einen Task zurück, der abgeschlossen ist, wenn alle Tasks in der Liste abgeschlossen sind
+        await Task.WhenAll(t1, t2); // WhenAll gibt einen Task zurück, der abgeschlossen ist, wenn alle Tasks in der Liste abgeschlossen sind
         WriteLine($"{nameof(DownloadMultipleAsync)}: {nameof(DownloadAsync_Await)} of all files completed");
     }
 }

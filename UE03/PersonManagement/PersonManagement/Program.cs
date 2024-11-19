@@ -37,26 +37,29 @@ textWriter.WriteLine("Persons in Hagenberg");
 textWriter.WriteLine("=====================================================");
 personRepository.FindPersonsByCity("Hagenberg").ForEach(textWriter.WriteLine);
 
-//textWriter.WriteLine();
-//textWriter.WriteLine("=====================================================");
-//textWriter.WriteLine("Person names");
-//textWriter.WriteLine("=====================================================");
-//
-// TODO
-//
+textWriter.WriteLine();
+textWriter.WriteLine("=====================================================");
+textWriter.WriteLine("Person names");
+textWriter.WriteLine("=====================================================");
+var names = personRepository.GetPersonNames();
+foreach (var name in names)
+{
+	textWriter.WriteLine(name.Item1 + " " + name.Item2);
+}
 
-//textWriter.WriteLine();
-//textWriter.WriteLine("=====================================================");
-//textWriter.WriteLine($"Youngest person");
-//textWriter.WriteLine("=====================================================");
-//
-// TODO
-//
+textWriter.WriteLine();
+textWriter.WriteLine("=====================================================");
+textWriter.WriteLine($"Youngest person");
+textWriter.WriteLine("=====================================================");
+Person youngest = personRepository.FindYoungestPerson();
+textWriter.WriteLine(youngest);
 
-//textWriter.WriteLine();
-//textWriter.WriteLine("=====================================================");
-//textWriter.WriteLine("Persons sorted by age ascending");
-//textWriter.WriteLine("=====================================================");
-//
-// TODO
-//
+textWriter.WriteLine();
+textWriter.WriteLine("=====================================================");
+textWriter.WriteLine("Persons sorted by age ascending");
+textWriter.WriteLine("=====================================================");
+var personsSortedByAge = personRepository.FindPersonsSortedByAgeAscending();
+foreach (var p in personsSortedByAge)
+{
+	textWriter.WriteLine(p);
+}

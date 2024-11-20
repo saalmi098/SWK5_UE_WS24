@@ -1,0 +1,6 @@
+@OrderManagement.Api_HostAddress = http://localhost:5176
+
+GET {{OrderManagement.Api_HostAddress}}/api/Customers
+Accept: application/json
+
+###

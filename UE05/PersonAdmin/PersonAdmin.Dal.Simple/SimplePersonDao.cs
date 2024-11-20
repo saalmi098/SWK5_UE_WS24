@@ -14,7 +14,7 @@ public class SimplePersonDao : IPersonDao
 
     public Task<IEnumerable<Person>> FindAllAsync(CancellationToken cancellationToken = default)
     {
-        return Task.FromResult<IEnumerable<Person>>(personList);
+        return Task.FromResult<IEnumerable<Person>>(personList); ;
     }
 
     public Task<Person?> FindByAsync(int id, CancellationToken cancellationToken = default)

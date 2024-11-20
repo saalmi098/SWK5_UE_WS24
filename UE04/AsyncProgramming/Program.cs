@@ -32,9 +32,9 @@ WriteLine($"{nameof(Downloader.DownloadAsync_Await)} completed work");
 WriteLine();
 
 WriteLine($"======================= {nameof(Downloader.DownloadMultipleAsync)} =======================");
-// TODO
+var multiTask = downloader.DownloadMultipleAsync(URL1, "book1.pdf", URL2, "book2.pdf");
 WriteLine($"{nameof(Downloader.DownloadMultipleAsync)} gave control back to caller");
-// TODO
+await multiTask;
 WriteLine($"{nameof(Downloader.DownloadMultipleAsync)} completed work");
 WriteLine();
 

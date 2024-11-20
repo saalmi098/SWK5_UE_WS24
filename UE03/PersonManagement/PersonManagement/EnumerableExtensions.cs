@@ -10,6 +10,7 @@
             }
         }
 
+        //public static IEnumerable<T> Filter<T>(this IEnumerable<T> target, Func<T, bool> predicate)
         public static IEnumerable<T> Filter<T>(this IEnumerable<T> target, Predicate<T> predicate)
         {
             foreach (var item in target)

@@ -27,7 +27,10 @@ public class PersonRepository
 
     public IEnumerable<(string?, string?)> GetPersonNames()
     {
-        return null;
+        foreach (var p in persons)
+        {
+            yield return (p.FirstName, p.LastName);
+        }
     }
 
     public IEnumerable<Person> FindPersonsByCity(string city)
@@ -37,12 +40,13 @@ public class PersonRepository
 
     public Person FindYoungestPerson()
     {
-        return null;
+        return persons.OrderByDescending(p => p.DateOfBirth).FirstOrDefault()
+            ?? throw new InvalidOperationException("no persons found");
     }
 
 
     public IEnumerable<Person> FindPersonsSortedByAgeAscending()
     {
-        return null;
+        return persons.OrderByDescending(p => p.DateOfBirth);
     }
 }

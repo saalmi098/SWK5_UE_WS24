@@ -42,6 +42,8 @@ public class PersonRepository
     {
         return persons.OrderByDescending(p => p.DateOfBirth).FirstOrDefault()
             ?? throw new InvalidOperationException("no persons found");
+
+        // return persons.MaxBy(p => p.DateOfBirth);
     }
 
 

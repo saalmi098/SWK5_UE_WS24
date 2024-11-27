@@ -1,7 +1,16 @@
+using OrderManagement.Api.HostedServices;
 using OrderManagement.Logic;
 using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// In Produktivumgebung nicht alles erlauben -> sondern z.B. "ich erlaube diese beiden Base-URLs, diese Methoden, ..."
+builder.Services.AddCors(builder => builder.AddDefaultPolicy(policy =>
+    policy
+        .AllowAnyOrigin() // jede Origin-URL wird erlaubt
+        .AllowAnyMethod() // jede HTTP-Method wird erlaubt
+        .AllowAnyHeader()
+    ));
 
 // Service Collection (fuer Dependency Injection)
 builder.Services.AddControllers(options => options.ReturnHttpNotAcceptable = true)
@@ -16,14 +25,28 @@ builder.Services.AddScoped<IOrderManagementLogic, OrderManagementLogic>(); // be
 //builder.Services.AddSingleton<...>(); // -> nur eine Instanz pro ASP.Net Core Anwendung (erst wenn Anwendung abstuerzt oder neu startet = neue Instanz)
 //builder.Services.AddTransient<...>(); // immer eine neue Instanz
 
+builder.Services.AddRouting(options => { options.LowercaseUrls = true; });
+
+// NSwag (NuGet Packages: NSwag.AspNetCore, NSwag.MSBuild, NSwag.Annotations)
+builder.Services.AddOpenApiDocument(settings => settings.Title = "Order Management API");
+
+// Hosted Service (Background Service)
+builder.Services.AddHostedService<QueuedUpdateService>();
+builder.Services.AddSingleton<UpdateChannel>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseCors();
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseOpenApi();
+app.UseSwaggerUi(settings => settings.Path = "/swagger"); // http://localhost:xxxx/swagger
+app.UseReDoc(settings => settings.Path = "/redoc"); // http://localhost:xxxx/redoc
 
 app.Run();

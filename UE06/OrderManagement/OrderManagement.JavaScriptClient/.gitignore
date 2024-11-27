@@ -1,0 +1,3 @@
+/wwwroot/*.map
+/wwwroot/fetchClient.js
+/wwwroot/uiLogic.js

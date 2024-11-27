@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Order Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="fetchClient.js" defer></script>
+    <script src="uiLogic.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Customer Data</h1>
+
+    <form>
+      <div class="mb-3">
+        <label for="txtCustomerId" class="form-label">Customer Id</label>
+        <input id="txtCustomerId" type="text" class="form-control"
+               value="cccccccc-0000-0000-0000-111111111111" required>
+        <div class="invalid-feedback">
+          <span id="errorCustomerId">Please provide a valid customer ID (GUID)</span>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="txtName" class="form-label">Name</label>
+        <input id="txtName" type="text" class="form-control" readonly>
+      </div>
+
+      <div class="mb-3">
+        <label for="txtZipCode" class="form-label">ZipCode</label>
+        <input id="txtZipCode" type="text" class="form-control" readonly>
+      </div>
+
+      <div class="mb-3">
+        <label for="txtCity" class="form-label">City</label>
+        <input id="txtCity" type="text" class="form-control" readonly>
+      </div>
+
+      <div class="mb-3">
+        <label for="txtRating" class="form-label">Rating</label>
+        <input id="txtRating" type="text" class="form-control" readonly>
+      </div>
+
+      <button id="btnFetchCustomer" type="button" class="btn btn-primary">Fetch customer</button>
+    </form>
+  </div>
+</body>
+</html>

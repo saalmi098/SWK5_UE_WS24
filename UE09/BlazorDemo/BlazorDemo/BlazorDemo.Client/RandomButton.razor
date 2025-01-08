@@ -1,0 +1,24 @@
+﻿<span>
+	<button style="font-size: 22px;"
+			@onclick="OnClick">
+			@randomValue
+	</button>
+
+	<strong>Browser: @OperatingSystem.IsBrowser()</strong>
+</span>
+
+
+
+
+@code {
+	private Random random = new();
+	private int randomValue = 0;
+
+	[Parameter] // um die Eigenschaft von aussen (Razor) setzen zu können
+	public int Max { get; set; } = 100;
+
+	private void OnClick(MouseEventArgs e)
+	{
+		randomValue = random.Next(1, Max);
+	}
+}

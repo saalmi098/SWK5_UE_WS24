@@ -1,0 +1,29 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h3>RandomButton SSR</h3>
+<RandomButton />
+
+<h3>RandomButton SSR + interactive</h3>
+<RandomButton @rendermode="InteractiveServer" />
+<!-- rendermode kann pro Komponente festgelegt werden (natuerlich auch global) -->
+
+<br/>
+<RandomButton @rendermode="InteractiveServer" Max="5" />
+
+<!--
+	Ab hier: RandomButton von BlazorDemo nach BlazorDemo.Client verschoben
+	Wichtig: Components in BlazorDemo.Client funktionieren AUCH am Client (d.h. mit Blazor WebAssembly)
+	(aber nicht NUR am Client; also SSR geht weiterhin (Projekt BlazorDemo bindet BlazorDemo.Client ein)
+-->
+<h3>RandomButton Interactive WebAssembly</h3>
+<RandomButton @rendermode="InteractiveWebAssembly" Max="1000" />
+<!--
+	Button Clicks erzeugen keinen Network Traffic (nach dem initialen Laden)
+	=> Button ist offline-faehig
+-->
+
+
+<h3>RandomButton (Interactive) Auto</h3>
+<RandomButton @rendermode="InteractiveAuto" Max="1000" />
